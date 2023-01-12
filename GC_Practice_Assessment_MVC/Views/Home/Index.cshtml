@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PersonVM>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="row">
+@foreach(PersonVM person in Model){
+    
+    <div class="col form-control-color m-1">
+    <p>@person.UserName</p>
+    <p>@person.Age</p>
+    @if (person.CanDrink)
+    {
+        <p class="text-success">This person.CanDrink several beers!</p>
+    }
+    else
+    {
+        <p class="text-danger">This !person.CanDrink no beers</p>
+    }
+    @if (person.CanDrive)
+    {
+        <p class="text-success">This person.CanDrive == true</p>
+    }
+    else
+    {
+        <p class="text-danger">This !person.CanDrive</p>
+    }
+    </div>
+        
+}
+</div>
